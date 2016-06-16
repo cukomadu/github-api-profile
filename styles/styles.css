@@ -1,0 +1,139 @@
+/* General Style */
+* {
+	font-family: 'Open Sans', sans-serif;
+}
+
+/* Main Container */
+#container {
+	display: flex;
+	flex-direction: row;
+	width: 90%;
+	margin: 0 auto;
+}
+
+.column {
+	padding: 3%;
+}
+
+#inputBox{
+    display: table-cell;
+    width: 100%;
+    min-height: 30px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background: none;
+    border: 1px solid #bbbbbb;
+    box-shadow: none;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+/* Left Column Styling: User Profile */
+
+#userProfile {
+	flex: 1;
+}
+
+
+#socialmedia{
+	display: flex;
+	border-bottom: 1px solid #bbbbbb;
+	border-top: 1px solid #bbbbbb;
+	padding: 10px;
+	
+}
+
+#socialmedia > * {
+   /* width: 33%; */
+    text-align: center;
+    flex: 1;
+    margin-right: 25px;
+}
+
+
+#mainbio{
+	border-bottom: 1px solid #bbbbbb;
+}
+
+.count {
+    font-size: 30px;
+    font-weight: 900;
+    color: #4785F4;
+}
+
+.text {
+    font-size: 11px;
+    margin-top: auto;
+    color: #767676;
+}
+
+#name {
+    margin: 0px;
+}
+
+#login{
+    margin: 0px;
+    font-size: 18px;
+}
+
+#location {
+    margin-bottom: 0px;
+}
+
+#date {
+    margin-top: 0px;
+}
+
+#contactinfo {
+    line-height: 2;
+}
+
+#userProfile > a {
+	text-decoration: none;
+	color: #4785F4;
+}
+
+#profileImg {
+	max-width: 100%;
+}
+
+.name{
+	color: #4785F4;
+
+}
+
+
+/* Right Column Styling: User Repos */
+#repoData {
+	flex: 3;
+}
+
+.repoContainer {
+	display: flex;
+	padding: 3%;
+	margin: 2% 0;
+	border-bottom: 1px solid #bbbbbb; 
+	
+}
+
+
+
+.repoUl{
+	flex: 1;
+	
+}
+
+.repoContainer:first-child {
+	border-top: 1px solid #bbbbbb;
+}
+
+.repo{
+	margin-top: -25px;
+	
+}
+
+
+
+
+
