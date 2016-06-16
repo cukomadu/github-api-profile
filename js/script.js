@@ -243,10 +243,15 @@ promiseProfile.then(profileDataHandler)
 
 
 
-// 2. ADVENTURE MODE - ANY GIT PROFILE
+/* 2. ADVENTURE MODE - ANY GIT PROFILE
 
 // Declare Key Element
 var inputNode = document.querySelector("#inputBox")
+
+
+var gitQuery = = function(userInput){
+
+}
 
 var userSearch = function(eventObj) {
     console.log(eventObj)
@@ -277,7 +282,7 @@ var userSearch = function(eventObj) {
 
 
 
-inputNode.addEventListener("keydown", userSearch)
+inputNode.addEventListener("keydown", userSearch) */
 
 
 
