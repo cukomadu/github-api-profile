@@ -267,15 +267,15 @@ var userSearch = function(eventObj) {
 		var promiseUserProfile = $.getJSON(urlUserProfile)
 		var promiseUserRepos = $.getJSON(urlUserRepos)
 
-        promiseUserProfile.then(profileDataHandler)
-        promiseUserRepos.then(reposDataHandler)
+        
 
          //Clear the search box
         inputElement.value = ''
     }
 }
 
-
+promiseUserProfile.then(profileDataHandler)
+promiseUserRepos.then(reposDataHandler)
 
 inputNode.addEventListener("keydown", userSearch)
 
