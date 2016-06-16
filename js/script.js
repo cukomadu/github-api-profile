@@ -3,10 +3,16 @@
 // Function to concatenate strings
 var genParamString = function(paramObject) {
     var outputString = '?'
-    for (var key in paramObject) {
+    if(token !== ''){
+    	for (var key in paramObject) {
      	outputString += key + '=' + paramObject[key] + '&'
-    }
-    return outputString.substr(0,outputString.length - 1)
+     	return outputString.substr(0,outputString.length - 1)
+
+    	}
+    } else {
+    	return token
+    }    
+    
 }
 
 // Workaround solution for uploading to github without exposing the user API key
@@ -76,11 +82,9 @@ var profileDataHandler = function(profileResObject){
 			userBio = "Information not provided"
 
 	} 
-	//if(userBlog === null){
-		//	userBlog = "Information not provided"
-		//	htmlString = '<p id="userblog"' + userBlog + '</p>'
-
-	//} 
+	if(userBlog === null){
+			userBlog = "Information not provided"
+	} 
 	if(userCollaborators === undefined){
 			userCollaborators = "0"
 	}
@@ -118,11 +122,6 @@ var profileDataHandler = function(profileResObject){
 	htmlString += 	'<a id="email" href="' + userEmail + '">' + userEmail + '</a>'
 	htmlString += 	'<br>'
 	htmlString += 	'<a id="userblog" href="' + userBlog + '">' + userBlog + '</a>'
-			if(userBlog === null){
-			userBlog = "Information not provided"
-			htmlString += '<p id="userblog"' + userBlog + '</p>'
-
-			} 
 	htmlString += 	'<p id="date">' + 'Joined on' + ' ' + nJoinDate + '</p>'
 	htmlString += '</div>'
 			
@@ -243,15 +242,10 @@ promiseProfile.then(profileDataHandler)
 
 
 
-/* 2. ADVENTURE MODE - ANY GIT PROFILE
+// 2. ADVENTURE MODE - ANY GIT PROFILE
 
 // Declare Key Element
 var inputNode = document.querySelector("#inputBox")
-
-
-var gitQuery = = function(userInput){
-
-}
 
 var userSearch = function(eventObj) {
     console.log(eventObj)
@@ -272,17 +266,17 @@ var userSearch = function(eventObj) {
 		var promiseUserProfile = $.getJSON(urlUserProfile)
 		var promiseUserRepos = $.getJSON(urlUserRepos)
 
-        
+        promiseUserProfile.then(profileDataHandler)
+		promiseUserRepos.then(reposDataHandler)
 
          //Clear the search box
         inputElement.value = ''
     }
 }
 
-promiseUserProfile.then(profileDataHandler)
-promiseUserRepos.then(reposDataHandler)
 
-inputNode.addEventListener("keydown", userSearch) */
+
+inputNode.addEventListener("keydown", userSearch) 
 
 
 
