@@ -166,7 +166,8 @@ var reposDataHandler = function(repoResArray){
 			var repoObject = repoResArray[i],
 				repoName = repoObject.name,
 				repoDesc = repoObject.description,
-				repoUpdatedAt = repoObject.updated_at
+				repoUpdatedAt = repoObject.updated_at,
+				repoNameUrl = repoObject.html_url
 
 		// Check data and replace all undefined data with "not listed"
 			if (repoDesc === null) {
@@ -225,7 +226,7 @@ var reposDataHandler = function(repoResArray){
 		// Build an HTML String
 			htmlRepoString += '<div class="repoContainer">'
 			htmlRepoString += '<ul class="repo" id=loneranger">'
-			htmlRepoString += 	'<h1 class="name">' + repoName + '</h1>'
+			htmlRepoString += 	'<a class="name" href="' + repoNameUrl + '">' + repoName + '</a>'
 			htmlRepoString += 	'<p class="desc">' + repoDesc + '</p>'
 			htmlRepoString += 	'<p class="metadata">' + newRepoUpdateTime + '</p>'
 			htmlRepoString += '</ul>'
