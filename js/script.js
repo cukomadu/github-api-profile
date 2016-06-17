@@ -16,7 +16,6 @@ var genParamString = function(paramObject) {
 }
 
 // Workaround solution for uploading to github without exposing the user API key
-var name
 
 try {
 	var token = GLOBAL_TOKEN
@@ -156,7 +155,7 @@ var profileDataHandler = function(profileResObject){
 
 // Define Functions to handle the data received from Repo API request when it's ready
 var reposDataHandler = function(repoResArray){
-	//console.log(repoResArray)
+	console.log(repoResArray)
 	
 	// Declare Local Variable
 	var htmlRepoString = ''
@@ -166,7 +165,8 @@ var reposDataHandler = function(repoResArray){
 			var repoObject = repoResArray[i],
 				repoName = repoObject.name,
 				repoDesc = repoObject.description,
-				repoUpdatedAt = repoObject.updated_at
+				repoUpdatedAt = repoObject.updated_at,
+				repoNameUrl = repoObject.html_url
 
 		// Check data and replace all undefined data with "not listed"
 			if (repoDesc === null) {
@@ -225,7 +225,7 @@ var reposDataHandler = function(repoResArray){
 		// Build an HTML String
 			htmlRepoString += '<div class="repoContainer">'
 			htmlRepoString += '<ul class="repo" id=loneranger">'
-			htmlRepoString += 	'<h1 class="name">' + repoName + '</h1>'
+			htmlRepoString += 	'<a class="name" href="' + repoNameUrl  + '">' + repoName + '</a>'
 			htmlRepoString += 	'<p class="desc">' + repoDesc + '</p>'
 			htmlRepoString += 	'<p class="metadata">' + newRepoUpdateTime + '</p>'
 			htmlRepoString += '</ul>'
@@ -233,7 +233,7 @@ var reposDataHandler = function(repoResArray){
 		
 		
 	}
-	reposContainer.innerHTML += htmlRepoString 
+	reposContainer.innerHTML = htmlRepoString 
 }
 
 // Invoke Promise (then) Function to excute handler functions
